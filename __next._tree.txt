@@ -1,0 +1,5 @@
+:HL["/primis-ai-bots/_next/static/chunks/3zhd8icfeb0z-.css","style"]
+:HL["/primis-ai-bots/_next/static/media/5c285b27cdda1fe8-s.p.2_mbdogr7ni8i.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://primisbank.com/wp-content/uploads/2024/08/primisbank-logo.png","image"]
+:HL["/primis-logo-light.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"KgxTZVyApbetntwDXMXi4"}
