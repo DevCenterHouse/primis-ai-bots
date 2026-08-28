@@ -12,12 +12,7 @@ export default function FlowSteps({ steps }: FlowStepsProps) {
           {/* Step connector */}
           <div className="flex flex-col items-center">
             <div
-              className="w-8 h-8 rounded-full border-2 flex items-center justify-center shrink-0 text-xs font-bold"
-              style={{
-                borderColor: "var(--accent)",
-                backgroundColor: "var(--accent-subtle)",
-                color: "var(--accent-text)",
-              }}
+              className="on-accent w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold"
             >
               {step.step}
             </div>

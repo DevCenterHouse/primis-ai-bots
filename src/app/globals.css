@@ -20,6 +20,7 @@
 
   --accent:        #bdff00;
   --accent-text:   #bdff00;
+  --on-accent:     #141414;
   --accent-subtle: rgba(189, 255, 0, 0.10);
   --accent-border: rgba(189, 255, 0, 0.25);
   --accent-badge:  rgba(189, 255, 0, 0.12);
@@ -47,7 +48,8 @@
   --border:      #dcdcdc;
 
   --accent:        #bdff00;
-  --accent-text:   #bdff00;
+  --accent-text:   #478257;
+  --on-accent:     #141414;
   --accent-subtle: rgba(189, 255, 0, 0.22);
   --accent-border: rgba(80, 80, 80, 0.22);
   --accent-badge:  rgba(189, 255, 0, 0.20);
@@ -96,8 +98,8 @@ body {
 }
 
 ::selection {
-  background-color: #bdff00;
-  color: #141414;
+  background-color: var(--accent);
+  color: var(--on-accent);
 }
 
 ::-webkit-scrollbar { width: 4px; }
@@ -130,7 +132,7 @@ body {
   color: var(--accent-text);
 }
 [data-theme="light"] .platform-pill {
-  color: #141414;
+  color: var(--on-accent);
 }
 
 
@@ -154,7 +156,7 @@ body {
   background-color: transparent;
 }
 [data-theme="light"] .accent-label {
-  color: #141414;
+  color: var(--on-accent);
   background-color: var(--accent);
 }
 
@@ -166,7 +168,7 @@ body {
   background-color: transparent;
 }
 [data-theme="light"] .initiative-label {
-  color: #141414;
+  color: var(--on-accent);
   background-color: var(--accent);
 }
 
@@ -175,6 +177,11 @@ body {
 .logo-light { display: none;  }
 [data-theme="light"] .logo-dark  { display: none;  }
 [data-theme="light"] .logo-light { display: block; }
+
+.on-accent {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
 
 .nav-link {
   color: var(--text-muted);

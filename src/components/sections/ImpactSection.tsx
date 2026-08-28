@@ -64,7 +64,7 @@ export default function ImpactSection() {
           >
             What changes when the
             <br className="hidden sm:block" />
-            {" "}<span style={{ color: "var(--accent-text)" }}>routine runs itself.</span>
+            {" "}routine runs itself.
           </h2>
           <p
             className="mt-4 sm:mt-6 max-w-xl leading-relaxed text-base"

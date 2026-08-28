@@ -49,13 +49,7 @@ export default function Header() {
               className="logo-light"
               style={{ height: "24px", width: "auto" }}
             />
-            <span
-              className="text-xs font-medium px-2 py-0.5 rounded"
-              style={{
-                backgroundColor: "var(--accent-badge)",
-                color: "var(--accent-text)",
-              }}
-            >
+            <span className="on-accent text-xs font-bold px-2 py-0.5 rounded tracking-wide">
               AI
             </span>
           </div>

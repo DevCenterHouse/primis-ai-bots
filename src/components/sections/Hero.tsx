@@ -9,7 +9,7 @@ export default function Hero() {
           className="accent-label text-xs font-semibold tracking-[0.25em] uppercase mb-6 animate-fade-up"
           style={{ animationDelay: "0ms" }}
         >
-          Primis AI Initiative
+          Primis AI Portfolio
         </p>
 
         <h1
@@ -18,8 +18,7 @@ export default function Hero() {
         >
           Demand more
           <br />
-          from your{" "}
-          <span style={{ color: "var(--accent-text)" }}>workday.</span>
+          from your workday.
         </h1>
 
         <p
@@ -51,7 +50,7 @@ export default function Hero() {
                 backgroundColor: "var(--bg-input)",
               }}
             >
-              <span className="text-base font-bold" style={{ color: "var(--accent-text)" }}>
+              <span className="on-accent text-sm font-bold px-2 py-0.5 rounded">
                 {num}
               </span>
               <span className="text-sm font-medium" style={{ color: "var(--text)" }}>
