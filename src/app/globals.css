@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
+/* ── Brand design tokens ────────────────────────────────── */
+/* Dark theme (default) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:          #141414;
+  --bg-alt:      #1c1c1c;
+  --bg-deep:     #0e0e0e;
+  --bg-card:     rgba(28, 28, 28, 0.85);
+  --bg-panel:    rgba(40, 40, 40, 0.45);
+  --bg-tag:      rgba(60, 60, 60, 0.45);
+  --bg-input:    rgba(40, 40, 40, 0.55);
+  --bg-header:   rgba(20, 20, 20, 0.88);
+
+  --text:        #ffffff;
+  --text-muted:  #909090;
+  --text-dimmed: rgba(255, 255, 255, 0.06);
+
+  --border:      #3c3c3c;
+
+  --accent:        #bdff00;
+  --accent-text:   #bdff00;
+  --accent-subtle: rgba(189, 255, 0, 0.10);
+  --accent-border: rgba(189, 255, 0, 0.25);
+  --accent-badge:  rgba(189, 255, 0, 0.12);
+  --accent-low:    rgba(189, 255, 0, 0.05);
+
+  --shape-cutout:  #141414;
+  --watermark:     rgba(255, 255, 255, 0.02);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Light theme — follows Primis brand guide white/light palette */
+[data-theme="light"] {
+  --bg:          #ffffff;
+  --bg-alt:      #f4f4f4;
+  --bg-deep:     #ececec;
+  --bg-card:     rgba(242, 242, 242, 0.95);
+  --bg-panel:    rgba(228, 228, 228, 0.55);
+  --bg-tag:      rgba(210, 210, 210, 0.55);
+  --bg-input:    rgba(235, 235, 235, 0.80);
+  --bg-header:   rgba(255, 255, 255, 0.92);
+
+  --text:        #141414;
+  --text-muted:  #646464;
+  --text-dimmed: rgba(0, 0, 0, 0.04);
+
+  --border:      #dcdcdc;
+
+  --accent:        #bdff00;
+  --accent-text:   #bdff00;
+  --accent-subtle: rgba(189, 255, 0, 0.22);
+  --accent-border: rgba(80, 80, 80, 0.22);
+  --accent-badge:  rgba(189, 255, 0, 0.20);
+  --accent-low:    rgba(189, 255, 0, 0.10);
+
+  --shape-cutout:  #ffffff;
+  --watermark:     rgba(0, 0, 0, 0.03);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-neon:      #bdff00;
+  --color-onyx:      #141414;
+  --color-charcoal:  #282828;
+  --color-graphite:  #3c3c3c;
+  --color-ash:       #646464;
+  --color-smoke:     #dcdcdc;
+  --color-forest:    #478257;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  /* Prevent text size adjustments on iOS rotation */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Keyboard focus — visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+::selection {
+  background-color: #bdff00;
+  color: #141414;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* ── CSS Animations (hero, always plays) ────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-up  { animation: fadeUp 0.65s ease forwards; }
+.animate-fade-in  { animation: fadeIn 0.65s ease forwards; }
+
+/* ── Utilities ──────────────────────────────────────────── */
+.bot-link {
+  transition: border-color 0.25s ease;
+}
+.bot-link:hover {
+  border-color: var(--accent);
+}
+
+/* Platform pill (Copilot Studio / Power Automate) */
+.platform-pill {
+  color: var(--accent-text);
+}
+[data-theme="light"] .platform-pill {
+  color: #141414;
+}
+
+
+.feature-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-tag);
+  color: var(--text-muted);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Small accent labels (section labels, bot numbers, etc.) */
+.accent-label {
+  display: inline-block;
+  padding: 0.15em 0.65em;
+  color: var(--accent);
+  background-color: transparent;
+}
+[data-theme="light"] .accent-label {
+  color: #141414;
+  background-color: var(--accent);
+}
+
+/* "PRIMIS AI INITIATIVE" label — same style, kept for backward compat */
+.initiative-label {
+  display: inline-block;
+  padding: 0.15em 0.65em;
+  color: var(--accent);
+  background-color: transparent;
+}
+[data-theme="light"] .initiative-label {
+  color: #141414;
+  background-color: var(--accent);
+}
+
+/* Logo: show correct variant per theme */
+.logo-dark  { display: block; }
+.logo-light { display: none;  }
+[data-theme="light"] .logo-dark  { display: none;  }
+[data-theme="light"] .logo-light { display: block; }
+
+.nav-link {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: var(--text);
 }
