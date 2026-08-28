@@ -18,15 +18,17 @@ export const metadata: Metadata = {
 const antiFlicker = `
 try {
   var t = localStorage.getItem('theme');
-  if (t) document.documentElement.setAttribute('data-theme', t);
-} catch(e) {}
+  document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+} catch(e) {
+  document.documentElement.setAttribute('data-theme', 'light');
+}
 `;
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={dmSans.variable} suppressHydrationWarning>
+    <html lang="en" className={dmSans.variable} data-theme="light" suppressHydrationWarning>
       <head>
         {/* Runs before first paint — prevents theme flash on reload */}
         <script

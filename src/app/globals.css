@@ -1,37 +1,8 @@
 @import "tailwindcss";
 
 /* ── Brand design tokens ────────────────────────────────── */
-/* Dark theme (default) */
+/* Light theme (default) — Primis white / grey palette, lime accent */
 :root {
-  --bg:          #141414;
-  --bg-alt:      #1c1c1c;
-  --bg-deep:     #0e0e0e;
-  --bg-card:     rgba(28, 28, 28, 0.85);
-  --bg-panel:    rgba(40, 40, 40, 0.45);
-  --bg-tag:      rgba(60, 60, 60, 0.45);
-  --bg-input:    rgba(40, 40, 40, 0.55);
-  --bg-header:   rgba(20, 20, 20, 0.88);
-
-  --text:        #ffffff;
-  --text-muted:  #909090;
-  --text-dimmed: rgba(255, 255, 255, 0.06);
-
-  --border:      #3c3c3c;
-
-  --accent:        #bdff00;
-  --accent-text:   #bdff00;
-  --on-accent:     #141414;
-  --accent-subtle: rgba(189, 255, 0, 0.10);
-  --accent-border: rgba(189, 255, 0, 0.25);
-  --accent-badge:  rgba(189, 255, 0, 0.12);
-  --accent-low:    rgba(189, 255, 0, 0.05);
-
-  --shape-cutout:  #141414;
-  --watermark:     rgba(255, 255, 255, 0.02);
-}
-
-/* Light theme — follows Primis brand guide white/light palette */
-[data-theme="light"] {
   --bg:          #ffffff;
   --bg-alt:      #f4f4f4;
   --bg-deep:     #ececec;
@@ -57,6 +28,35 @@
 
   --shape-cutout:  #ffffff;
   --watermark:     rgba(0, 0, 0, 0.03);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg:          #141414;
+  --bg-alt:      #1c1c1c;
+  --bg-deep:     #0e0e0e;
+  --bg-card:     rgba(28, 28, 28, 0.85);
+  --bg-panel:    rgba(40, 40, 40, 0.45);
+  --bg-tag:      rgba(60, 60, 60, 0.45);
+  --bg-input:    rgba(40, 40, 40, 0.55);
+  --bg-header:   rgba(20, 20, 20, 0.88);
+
+  --text:        #ffffff;
+  --text-muted:  #909090;
+  --text-dimmed: rgba(255, 255, 255, 0.06);
+
+  --border:      #3c3c3c;
+
+  --accent:        #bdff00;
+  --accent-text:   #bdff00;
+  --on-accent:     #141414;
+  --accent-subtle: rgba(189, 255, 0, 0.10);
+  --accent-border: rgba(189, 255, 0, 0.25);
+  --accent-badge:  rgba(189, 255, 0, 0.12);
+  --accent-low:    rgba(189, 255, 0, 0.05);
+
+  --shape-cutout:  #141414;
+  --watermark:     rgba(255, 255, 255, 0.02);
 }
 
 @theme {
@@ -129,31 +129,32 @@ body {
 
 /* Microsoft Teams CTA button */
 .teams-btn {
-  color: #8b8cc7;
-  background-color: rgba(98, 100, 167, 0.12);
-  border: 1px solid rgba(98, 100, 167, 0.25);
-}
-.teams-btn:hover {
-  background-color: rgba(98, 100, 167, 0.22);
-  border-color: rgba(98, 100, 167, 0.5);
-  color: #a8a9d8;
-}
-[data-theme="light"] .teams-btn {
   color: #4a4b8c;
   background-color: rgba(98, 100, 167, 0.08);
   border: 1px solid rgba(98, 100, 167, 0.2);
 }
-[data-theme="light"] .teams-btn:hover {
+.teams-btn:hover {
   background-color: rgba(98, 100, 167, 0.16);
   border-color: rgba(98, 100, 167, 0.4);
   color: #3a3b7c;
 }
-
-/* Platform pill (Copilot Studio / Power Automate) */.platform-pill {
-  color: var(--accent-text);
+[data-theme="dark"] .teams-btn {
+  color: #8b8cc7;
+  background-color: rgba(98, 100, 167, 0.12);
+  border: 1px solid rgba(98, 100, 167, 0.25);
 }
-[data-theme="light"] .platform-pill {
+[data-theme="dark"] .teams-btn:hover {
+  background-color: rgba(98, 100, 167, 0.22);
+  border-color: rgba(98, 100, 167, 0.5);
+  color: #a8a9d8;
+}
+
+/* Platform pill (Copilot Studio / Power Automate) */
+.platform-pill {
   color: var(--on-accent);
+}
+[data-theme="dark"] .platform-pill {
+  color: var(--accent-text);
 }
 
 
@@ -173,31 +174,30 @@ body {
 .accent-label {
   display: inline-block;
   padding: 0.15em 0.65em;
-  color: var(--accent);
-  background-color: transparent;
-}
-[data-theme="light"] .accent-label {
   color: var(--on-accent);
   background-color: var(--accent);
 }
+[data-theme="dark"] .accent-label {
+  color: var(--accent);
+  background-color: transparent;
+}
 
-/* "PRIMIS AI INITIATIVE" label — same style, kept for backward compat */
 .initiative-label {
   display: inline-block;
   padding: 0.15em 0.65em;
-  color: var(--accent);
-  background-color: transparent;
-}
-[data-theme="light"] .initiative-label {
   color: var(--on-accent);
   background-color: var(--accent);
 }
+[data-theme="dark"] .initiative-label {
+  color: var(--accent);
+  background-color: transparent;
+}
 
 /* Logo: show correct variant per theme */
-.logo-dark  { display: block; }
-.logo-light { display: none;  }
-[data-theme="light"] .logo-dark  { display: none;  }
-[data-theme="light"] .logo-light { display: block; }
+.logo-dark  { display: none;  }
+.logo-light { display: block; }
+[data-theme="dark"] .logo-dark  { display: block; }
+[data-theme="dark"] .logo-light { display: none;  }
 
 .on-accent {
   background-color: var(--accent);
