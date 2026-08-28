@@ -127,8 +127,29 @@ body {
   border-color: var(--accent);
 }
 
-/* Platform pill (Copilot Studio / Power Automate) */
-.platform-pill {
+/* Microsoft Teams CTA button */
+.teams-btn {
+  color: #8b8cc7;
+  background-color: rgba(98, 100, 167, 0.12);
+  border: 1px solid rgba(98, 100, 167, 0.25);
+}
+.teams-btn:hover {
+  background-color: rgba(98, 100, 167, 0.22);
+  border-color: rgba(98, 100, 167, 0.5);
+  color: #a8a9d8;
+}
+[data-theme="light"] .teams-btn {
+  color: #4a4b8c;
+  background-color: rgba(98, 100, 167, 0.08);
+  border: 1px solid rgba(98, 100, 167, 0.2);
+}
+[data-theme="light"] .teams-btn:hover {
+  background-color: rgba(98, 100, 167, 0.16);
+  border-color: rgba(98, 100, 167, 0.4);
+  color: #3a3b7c;
+}
+
+/* Platform pill (Copilot Studio / Power Automate) */.platform-pill {
   color: var(--accent-text);
 }
 [data-theme="light"] .platform-pill {

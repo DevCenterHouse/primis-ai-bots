@@ -77,8 +77,8 @@ export default function BotSection({ bot, index }: BotSectionProps) {
               {bot.description}
             </p>
 
-            {/* Platform badge */}
-            <div>
+            {/* Platform badge + Teams CTA */}
+            <div className="flex flex-wrap items-center gap-3">
               <span
                 className="platform-pill text-xs px-3 py-1 rounded-full font-medium"
                 style={{
@@ -88,6 +88,26 @@ export default function BotSection({ bot, index }: BotSectionProps) {
               >
                 {bot.platform}
               </span>
+              {bot.teamsUrl && (
+                <a
+                  href={bot.teamsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="teams-btn inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-all duration-200"
+                >
+                  {/* Microsoft Teams icon */}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M14.5 6.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="#6264A7"/>
+                    <path d="M18 8h-7a1 1 0 0 0-1 1v6a4 4 0 0 0 4 4h1a4 4 0 0 0 4-4V9a1 1 0 0 0-1-1Z" fill="#6264A7"/>
+                    <path d="M8.5 9.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="#6264A7" opacity=".7"/>
+                    <path d="M11 11H6a1 1 0 0 0-1 1v4a3 3 0 0 0 3 3h1a3 3 0 0 0 3-3v-4a1 1 0 0 0-1-1Z" fill="#6264A7" opacity=".7"/>
+                  </svg>
+                  Open in Teams
+                  <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              )}
             </div>
 
             {/* Tags */}

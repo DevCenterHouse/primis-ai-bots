@@ -17,6 +17,7 @@ export interface Bot {
   tagline: string;
   description: string;
   platform: string;
+  teamsUrl?: string;
   flowSteps: FlowStep[];
   outputs: BotOutput[];
   tags: string[];
@@ -33,6 +34,7 @@ export const bots: Bot[] = [
     description:
       "Drafting meeting minutes was costing the IT/PMO team up to 5 hours every week: someone sitting with the transcript, pulling out decisions, formatting action items, sending follow-ups. This bot removes that overhead entirely: it reads the transcript, structures the conversation into a professional MOM document, and saves Word and PDF versions directly to SharePoint.",
     platform: "Copilot Studio + Power Automate",
+    teamsUrl: "https://teams.microsoft.com/l/app/?titleId=T_d38cf987-ceb8-fa7f-5f55-9214056a590f",
     flowSteps: [
       {
         step: 1,
@@ -145,6 +147,7 @@ export const bots: Bot[] = [
     description:
       "Group mailboxes function as informal work queues: customer requests, approvals, follow-ups, and more arrive daily. Understanding the full pattern of that work usually means manually reading messages, sorting themes, and interviewing process owners. This bot reduces that discovery effort: it analyzes mailbox history, identifies recurring email types and manual hand-offs, and delivers a structured report on where automation would have the most impact.",
     platform: "Copilot Studio + Power Automate",
+    teamsUrl: "https://teams.microsoft.com/l/app/?titleId=T_b83de3a6-4e99-7b6b-07ad-6e89efbbf763",
     flowSteps: [
       {
         step: 1,
@@ -201,6 +204,7 @@ export const bots: Bot[] = [
     description:
       "Policy and procedure reviews often require line-by-line comparison across versions: reviewers must determine what changed, whether downstream materials are still aligned, and which changes require approval. This bot addresses two scenarios: comparing versions of a policy to surface every change, and checking whether a procedure aligns with its governing policy. It reads the documents, runs an AI comparison, supports follow-up Q&A, and produces a Word report with everything documented.",
     platform: "Copilot Studio + Power Automate",
+    teamsUrl: "https://teams.microsoft.com/l/app/?titleId=T_cf08fa62-c3c4-792c-1df1-57a61f1f59af",
     flowSteps: [
       {
         step: 1,
@@ -237,7 +241,10 @@ export const bots: Bot[] = [
       { icon: "📝", label: "Word Comparison Report" },
       { icon: "⚖️", label: "Compliance Check" },
       { icon: "💬", label: "Contextual Q&A" },
-      { icon: "📚", label: "Regulatory Context from Dataverse (Policy vs Policy)" },
+      {
+        icon: "📚",
+        label: "Regulatory Context from Dataverse (Policy vs Policy)",
+      },
     ],
     tags: [
       "Policy vs Policy",
